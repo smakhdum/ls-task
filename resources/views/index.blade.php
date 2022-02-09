@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Enter Car Owner Name and Car id</h1>
+    <h1>Request Car Owner_Name and Car_id</h1>
+    <a href="{{url('api/post')}}"><button > Get request </button> </a>
+    <br>
+    <br>
+    <h1>For post request post Owner_Name and Car_id </h1>
+
 </body>
 </html>

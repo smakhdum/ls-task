@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Owner;
+use App\Models\Car ;
+use App\Models\Mechanic;
+
 
 class ownerController extends Controller
 {
@@ -13,7 +17,9 @@ class ownerController extends Controller
      */
     public function index()
     {
-        return view('index');
+       // return view('owners');
+       $ownerData= Owner::all();
+       return view('owners', ['ownerData' => $ownerData]);
     }
 
     /**
@@ -34,7 +40,14 @@ class ownerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+        $this->validate($request, [
+            'owner_name' => 'string',
+            'car_id' => 'required|integer',
+        ]);
+
+        return Owner::create($request->all());
     }
 
     /**
@@ -45,7 +58,8 @@ class ownerController extends Controller
      */
     public function show($id)
     {
-        //
+        return Owner::find($id);
+        
     }
 
     /**
